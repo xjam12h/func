@@ -107,6 +107,7 @@ class App extends React.Component {
           </div>
         </React.Fragment>
         <CustomizedSlider />
+        <VerticalSlider />
       </WidthEditor>
     )
   }
@@ -114,7 +115,7 @@ class App extends React.Component {
 
 export default App;
 
-
+/* */
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -329,5 +330,73 @@ function CustomizedSlider() {
         defaultValue={[20, 40]}
       />
     </div>
+  );
+}
+
+
+
+
+/*           */
+
+const useStyles1 = makeStyles({
+  root: {
+    height: 300,
+  },
+});
+
+function valuetext1(value) {
+  return `${value}°C`;
+}
+
+const marks1 = [
+  {
+    value: 0,
+    label: '0°C',
+  },
+  {
+    value: 20,
+    label: '20°C',
+  },
+  {
+    value: 37,
+    label: '37°C',
+  },
+  {
+    value: 100,
+    label: '100°C',
+  },
+];
+
+function VerticalSlider() {
+  const classes = useStyles1();
+
+  return (
+    <React.Fragment>
+      <Typography id="vertical-slider" gutterBottom>
+        Temperature
+      </Typography>
+      <div className={classes.root}>
+        <Slider
+          orientation="vertical"
+          getAriaValueText={valuetext1}
+          defaultValue={30}
+          aria-labelledby="vertical-slider"
+        />
+        <Slider
+          disabled
+          orientation="vertical"
+          getAriaValueText={valuetext1}
+          defaultValue={30}
+          aria-labelledby="vertical-slider"
+        />
+        <Slider
+          orientation="vertical"
+          defaultValue={[20, 37]}
+          aria-labelledby="vertical-slider"
+          getAriaValueText={valuetext1}
+          marks={marks1}
+        />
+      </div>
+    </React.Fragment>
   );
 }
