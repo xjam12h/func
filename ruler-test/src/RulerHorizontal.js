@@ -142,7 +142,7 @@ function RulerHorizontal() {
 
     return (
         <div className={classes.root}>
-            <Horizontal aria-label="ios slider" defaultValue={60} marks={marks} valueLabelDisplay="on"
+            <Horizontal aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on"
                 track={false}
             />
         </div>

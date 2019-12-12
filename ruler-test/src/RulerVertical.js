@@ -147,9 +147,9 @@ function RulerVertical() {
     */
     return (
         <div className={classes.root}>
-            <Vertical aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on"
+            <Vertical aria-label="ios slider" defaultValue={100} marks={marks} valueLabelDisplay="on"
                 orientation="vertical"
-
+                valueLabelFormat={ValueText1}
                 track={false} />
         </div>
     );
@@ -169,6 +169,7 @@ const useStyles = makeStyles({
 function ValueText1(value) {
     return 100 - value;
 }
+
 
 
 /*
