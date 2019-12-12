@@ -144,6 +144,24 @@ function RulerVertical() {
     const classes = useStyles();
     /*value で値を固定、反映できる
     value={hoge}
+    valueLabelFormat で値が逆になっていることを解決
+    valueLabelFormat={ValueText1}
+
+    function ValueText1(value) {
+    return 100 - value;
+}
+TODO１
+１、editorのdeta-levelを渡してくる
+２、editorのdeta-levelを参考にwidth,heightを別のファイルから取得
+３、取得したwidthをhorizontalにheightをverticalに渡してルーラーのサイズとする
+
+ TODO ２
+ 1、Editorにおけるマウスの位置を取得
+ 2、取得した位置をpropsとしてルーラーに渡す
+ ３、マウスの位置情報をvalueをsliderのvalueに渡して再レンダリングさせる
+
+以上が作業としてやらなければならない機能用件である。
+ 
     */
     return (
         <div className={classes.root}>
