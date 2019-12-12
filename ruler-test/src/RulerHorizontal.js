@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import SlideRuler from 'slide-ruler';
-import { Page, Text, View, Document, StyleSheet, PDFViewer } from '@react-pdf/renderer';
-import HorizontalGauge from 'react-horizontal-gauge';
-import Ruler from 'rc-ruler';
 import 'rc-ruler/dist/index.css';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
@@ -14,49 +10,12 @@ import VolumeUp from '@material-ui/icons/VolumeUp';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Tooltip from '@material-ui/core/Tooltip';
-import RulerHorizontal from './RulerHorizontal';
-import RulerVertical from './RulerVertical';
-
-const WidthEditor = styled.div`
-width:250;
-height:300;
-`;
-const Width = styled.div`
-    top:50px;
-    left:50px;
-position:relative;
-
-`;
-const Height = styled.div`
-
-`;
-
-class RulerMain extends React.Component {
-    render() {
-        return (
-            <WidthEditor>
-                <Width>
-                    <RulerHorizontal />
-                </Width>
-                <RulerVertical />
-            </WidthEditor>
-        )
-    }
-}
 
 
 
-/* 
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: 300 + theme.spacing(3) * 2,
-    },
-    margin: {
-        height: theme.spacing(3),
-    },
-}));
 
+/*
 function ValueLabelComponent(props) {
     const { children, open, value } = props;
 
@@ -88,8 +47,9 @@ ValueLabelComponent.propTypes = {
     value: PropTypes.number.isRequired,
 };
 */
-const iOSBoxShadow = '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
-/*
+const iOSBoxShadow =
+    '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
+
 const marks = [
     {
         value: 0,
@@ -125,7 +85,7 @@ const marks = [
     },
 ];
 
-const IOSSlider = withStyles({
+const Horizontal = withStyles({
     root: {
         color: '#3880ff',
         height: 2,
@@ -177,13 +137,14 @@ const IOSSlider = withStyles({
 
 
 
-function CustomizedSlider() {
+function RulerHorizontal() {
     const classes = useStyles();
 
     return (
         <div className={classes.root}>
-            <IOSSlider aria-label="ios slider" defaultValue={60} marks={marks} valueLabelDisplay="on"
-                track={false} />
+            <Horizontal aria-label="ios slider" defaultValue={60} marks={marks} valueLabelDisplay="on"
+                track={false}
+            />
         </div>
     );
 }
@@ -191,62 +152,12 @@ function CustomizedSlider() {
 
 
 
-const useStyles1 = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
-        height: 400,
+        width: 300 + theme.spacing(3) * 2,
     },
-});
-
-function valuetext1(value) {
-    return `${value}°C`;
-}
-
-const marks1 = [
-    {
-        value: 0,
-        label: '0°C',
+    margin: {
+        height: theme.spacing(3),
     },
-    {
-        value: 20,
-        label: '20°C',
-    },
-    {
-        value: 37,
-        label: '37°C',
-    },
-    {
-        value: 100,
-        label: '100°C',
-    },
-];
-
-function VerticalSlider() {
-    const classes = useStyles1();
-
-    return (
-        <React.Fragment>
-
-            <div className={classes.root}>
-                <Slider
-                    orientation="vertical"
-                    getAriaValueText={valuetext1}
-                    defaultValue={30}
-                    aria-labelledby="vertical-slider"
-                    track={false}
-                />
-
-                <Slider
-                    orientation="vertical"
-                    defaultValue={[20, 37]}
-                    aria-labelledby="vertical-slider"
-                    getAriaValueText={valuetext1}
-                    marks={marks1}
-                    track={false}
-                />
-            </div>
-        </React.Fragment>
-    );
-}
-
-*/
-export default RulerMain;
+}));
+export default RulerHorizontal;

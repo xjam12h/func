@@ -26,7 +26,6 @@ class App extends React.Component {
 
     return (
       <div>
-        <Test />
         <div>
           <RulerMain />
         </div>
@@ -37,3 +36,14 @@ class App extends React.Component {
 
 export default App;
 
+/*
+
+    return (
+      <div>
+        <Test />
+        <div>
+          <RulerMain />
+        </div>
+      </div>
+    )
+*/

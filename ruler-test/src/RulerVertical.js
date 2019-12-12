@@ -14,48 +14,11 @@ import VolumeUp from '@material-ui/icons/VolumeUp';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import Tooltip from '@material-ui/core/Tooltip';
-import RulerHorizontal from './RulerHorizontal';
-import RulerVertical from './RulerVertical';
-
-const WidthEditor = styled.div`
-width:250;
-height:300;
-`;
-const Width = styled.div`
-    top:50px;
-    left:50px;
-position:relative;
-
-`;
-const Height = styled.div`
-
-`;
-
-class RulerMain extends React.Component {
-    render() {
-        return (
-            <WidthEditor>
-                <Width>
-                    <RulerHorizontal />
-                </Width>
-                <RulerVertical />
-            </WidthEditor>
-        )
-    }
-}
 
 
 
-/* 
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        width: 300 + theme.spacing(3) * 2,
-    },
-    margin: {
-        height: theme.spacing(3),
-    },
-}));
+
 
 function ValueLabelComponent(props) {
     const { children, open, value } = props;
@@ -87,9 +50,10 @@ ValueLabelComponent.propTypes = {
     open: PropTypes.bool.isRequired,
     value: PropTypes.number.isRequired,
 };
-*/
-const iOSBoxShadow = '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
-/*
+
+const iOSBoxShadow =
+    '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.13),0 0 0 1px rgba(0,0,0,0.02)';
+
 const marks = [
     {
         value: 0,
@@ -125,19 +89,17 @@ const marks = [
     },
 ];
 
-const IOSSlider = withStyles({
+const Vertical = withStyles({
     root: {
         color: '#3880ff',
         height: 2,
         padding: '15px 0',
     },
     thumb: {
-        height: 28,
-        width: 28,
+
         backgroundColor: '#fff',
         boxShadow: iOSBoxShadow,
-        marginTop: -14,
-        marginLeft: -14,
+
         '&:focus,&:hover,&$active': {
             boxShadow: '0 3px 1px rgba(0,0,0,0.1),0 4px 8px rgba(0,0,0,0.3),0 0 0 1px rgba(0,0,0,0.02)',
             // Reset on touch devices, it doesn't add specificity
@@ -159,30 +121,35 @@ const IOSSlider = withStyles({
         height: 2,
     },
     rail: {
-        height: 2,
+        left: 15,
         opacity: 0.5,
         backgroundColor: '#bfbfbf',
     },
     mark: {
         backgroundColor: '#bfbfbf',
-        height: 8,
-        width: 1,
+        height: 1,
+        width: 8,
         marginTop: -3,
     },
     markActive: {
         opacity: 1,
         backgroundColor: 'currentColor',
     },
+
 })(Slider);
 
 
 
-function CustomizedSlider() {
+function RulerVertical() {
     const classes = useStyles();
-
+    /*value で値を固定、反映できる
+    value={hoge}
+    */
     return (
         <div className={classes.root}>
-            <IOSSlider aria-label="ios slider" defaultValue={60} marks={marks} valueLabelDisplay="on"
+            <Vertical aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on"
+                orientation="vertical"
+
                 track={false} />
         </div>
     );
@@ -191,35 +158,20 @@ function CustomizedSlider() {
 
 
 
-const useStyles1 = makeStyles({
+/*           */
+
+const useStyles = makeStyles({
     root: {
         height: 400,
     },
 });
 
-function valuetext1(value) {
-    return `${value}°C`;
+function ValueText1(value) {
+    return 100 - value;
 }
 
-const marks1 = [
-    {
-        value: 0,
-        label: '0°C',
-    },
-    {
-        value: 20,
-        label: '20°C',
-    },
-    {
-        value: 37,
-        label: '37°C',
-    },
-    {
-        value: 100,
-        label: '100°C',
-    },
-];
 
+/*
 function VerticalSlider() {
     const classes = useStyles1();
 
@@ -234,19 +186,10 @@ function VerticalSlider() {
                     aria-labelledby="vertical-slider"
                     track={false}
                 />
-
-                <Slider
-                    orientation="vertical"
-                    defaultValue={[20, 37]}
-                    aria-labelledby="vertical-slider"
-                    getAriaValueText={valuetext1}
-                    marks={marks1}
-                    track={false}
-                />
             </div>
         </React.Fragment>
     );
 }
-
 */
-export default RulerMain;
+
+export default RulerVertical;
