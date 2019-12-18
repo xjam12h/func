@@ -16,62 +16,28 @@ import PropTypes from 'prop-types';
 import Tooltip from '@material-ui/core/Tooltip';
 import Test from './test';
 import RulerMain from './RulerMain';
-import Screen from './Screen';
 
-const All = styled.div`
-position:absolute;
+
+const AllScreen = styled.div`
+position:relative;
+top:40px;
+left:40px;
+background-color:red;
+width:300px;
+height:400px;
 `
 
-const Relative = styled.div`
-position:absolute;
-top:0px;
-left:0px;
-`
 
 
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      x: 0,
-      y: 0
+class Screen extends React.Component {
+    render() {
+        return (
+            <AllScreen>
+                <p>test</p>
+            </AllScreen>
+        )
     }
-    this.handleMouse = this.handleMouse.bind(this);
-  }
-
-  handleMouse(e) {
-    console.log(e.target.getBoundingClientRect);
-  }
-
-  render() {
-
-
-
-    console.log("test");
-    return (
-      <All>
-        <Relative>
-          <RulerMain />
-        </Relative>
-        <Screen onClick={this.handleMouse} />
-
-      </All>
-
-    )
-  }
 }
 
-export default App;
-
-/*
-
-    return (
-      <div>
-        <Test />
-        <div>
-          <RulerMain />
-        </div>
-      </div>
-    )
-*/
+export default Screen;

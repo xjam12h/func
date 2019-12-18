@@ -22,7 +22,7 @@ width:250;
 height:300;
 `;
 const Width = styled.div`
-    top:50px;
+    top:0px;
     left:50px;
 position:relative;
 

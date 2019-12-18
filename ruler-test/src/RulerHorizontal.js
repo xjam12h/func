@@ -53,35 +53,55 @@ const iOSBoxShadow =
 const marks = [
     {
         value: 0,
+        height: 80,
+
     },
     {
         value: 10,
+        height: 8,
+
     },
     {
         value: 20,
+        height: 8,
+
     },
     {
         value: 30,
+        height: 8,
+
     },
     {
         value: 40,
+        height: 8,
+
     },
     {
         value: 50,
+        height: 80,
     },
     {
         value: 60,
+        height: 8,
     },
     {
         value: 70,
+        height: 8,
+
     }, {
         value: 80,
+        height: 8,
+
     },
     {
         value: 90,
+        height: 8,
+
     },
     {
         value: 100,
+        height: 80,
+
     },
 ];
 
@@ -123,12 +143,13 @@ const Horizontal = withStyles({
         opacity: 0.5,
         backgroundColor: '#bfbfbf',
     },
-    mark: {
+    mark: props => ({
         backgroundColor: '#bfbfbf',
-        height: 8,
+        height: props.marks[4].height,
         width: 1,
         marginTop: -3,
-    },
+
+    }),
     markActive: {
         opacity: 1,
         backgroundColor: 'currentColor',
@@ -136,10 +157,15 @@ const Horizontal = withStyles({
 })(Slider);
 
 
+const marks1 = [
+    {
+        value: 34
+    }
+];
 
 function RulerHorizontal() {
     const classes = useStyles();
-
+    console.log(marks);
     return (
         <div className={classes.root}>
             <Horizontal aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on"
@@ -154,10 +180,8 @@ function RulerHorizontal() {
 
 const useStyles = makeStyles(theme => ({
     root: {
-        width: 300 + theme.spacing(3) * 2,
+        width: 300,
     },
-    margin: {
-        height: theme.spacing(3),
-    },
+
 }));
 export default RulerHorizontal;
