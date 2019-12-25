@@ -32,7 +32,14 @@ const Height = styled.div`
 `;
 
 class RulerMain extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
+        const { children } = this.props;
+
+        console.log(this.props.children);
+        console.log(children);
         return (
             <WidthEditor>
                 <Width>

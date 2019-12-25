@@ -22,7 +22,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 function ValueLabelComponent(props) {
     const { children, open, value } = props;
-
     const popperRef = React.useRef(null);
     React.useEffect(() => {
         if (popperRef.current) {
@@ -130,6 +129,7 @@ const Vertical = withStyles({
         width: 8,
         height: 1,
         marginLeft: -3,
+
     },
     markLabel: {
         fontSize: 10,
@@ -171,11 +171,17 @@ TODO１
                 orientation="vertical"
                 valueLabelFormat={ValueText1}
                 track={false} />
+            <Vertical aria-label="ios slider" defaultValue={100} marks={marks} valueLabelDisplay="off"
+                valueLabelFormat={ValueText1}
+                track={false} />
         </div>
     );
 }
 
-
+/*thumb
+width:0,
+height:0,
+*/
 
 
 /*           */

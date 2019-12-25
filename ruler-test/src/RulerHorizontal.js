@@ -14,7 +14,6 @@ import Tooltip from '@material-ui/core/Tooltip';
 
 
 
-
 /*
 function ValueLabelComponent(props) {
     const { children, open, value } = props;
@@ -54,6 +53,7 @@ const marks = [
     {
         value: 0,
         height: 80,
+        label: 0
 
     },
     {
@@ -79,6 +79,7 @@ const marks = [
     {
         value: 50,
         height: 80,
+        label: 50
     },
     {
         value: 60,
@@ -101,10 +102,10 @@ const marks = [
     {
         value: 100,
         height: 80,
+        label: 100
 
     },
 ];
-
 const Horizontal = withStyles({
     root: {
         color: '#3880ff',
@@ -143,13 +144,17 @@ const Horizontal = withStyles({
         opacity: 0.5,
         backgroundColor: '#bfbfbf',
     },
-    mark: props => ({
+    mark: {
         backgroundColor: '#bfbfbf',
-        height: props.marks[4].height,
+        height: props => props.marks[props.index] ? props.marks[props.index].height : 4,
         width: 1,
         marginTop: -3,
+        '＆[data-index="9"]': {
+            height: 4,
+        },
 
-    }),
+
+    },
     markActive: {
         opacity: 1,
         backgroundColor: 'currentColor',
@@ -170,6 +175,7 @@ function RulerHorizontal() {
         <div className={classes.root}>
             <Horizontal aria-label="ios slider" defaultValue={0} marks={marks} valueLabelDisplay="on"
                 track={false}
+                max={100} min={0}
             />
         </div>
     );

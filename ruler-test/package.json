@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.1.2",
     "escape-string-regexp": "^2.0.0",
     "material-ui": "^0.20.2",
+    "popper": "^1.0.1",
     "prop-types": "^15.7.2",
     "rc-ruler": "^0.1.1",
     "react": "^16.12.0",
@@ -45,5 +46,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "terser-brunch": "^4.0.0"
   }
 }
